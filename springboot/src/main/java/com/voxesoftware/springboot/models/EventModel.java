@@ -16,6 +16,7 @@ public class EventModel implements Serializable {
     private UUID idEvent;
 
     private Integer idUser;
+    private String name;
     private String startDate;
     private String endDate;
     private String description;
@@ -68,4 +69,12 @@ public class EventModel implements Serializable {
     public void setImageId(String imageId) {
         this.imageId = imageId;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
