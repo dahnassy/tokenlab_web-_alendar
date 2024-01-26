@@ -56,6 +56,17 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.OK).body(eventRepository.findAll());
     }
     
+    //pegar produto por id
+    @GetMapping("/events/{id}")
+    @Operation(summary = "Tras os evento pelo id")
+    public ResponseEntity<Object> getOneProductEvent(@PathVariable(value="id") UUID id){
+        Optional<EventModel> event0 = eventRepository.findById(id);
+        if(event0.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Event not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(event0.get());
+    }
+    
 
     //atualizar evento
     @PutMapping("/events/{id}")
@@ -71,7 +82,7 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.OK).body(eventRepository.save(eventModel));
     }
     
-    //deletar produto
+    //deletar evento
     @DeleteMapping("/events/{id}")
     @Operation(summary = "Deleta evento pelo id")
     public ResponseEntity<Object> deleteEvent(@PathVariable(value="id") UUID id){
