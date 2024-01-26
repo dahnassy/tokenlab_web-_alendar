@@ -56,7 +56,7 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.OK).body(eventRepository.findAll());
     }
     
-    //pegar produto por id
+    //pegar evento por id
     @GetMapping("/events/{id}")
     @Operation(summary = "Tras os evento pelo id")
     public ResponseEntity<Object> getOneProductEvent(@PathVariable(value="id") UUID id){
