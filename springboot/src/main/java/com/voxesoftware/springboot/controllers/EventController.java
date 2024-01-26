@@ -21,7 +21,7 @@ import com.voxesoftware.springboot.repositories.EventRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
-@RestController("/Events")
+@RestController
 public class EventController {
 	@Autowired
     EventRepository eventRepository;
